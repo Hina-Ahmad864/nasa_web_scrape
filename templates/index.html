@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        img{width: 200px;height:200px} 
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="jumbotron text-center">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="heading">Latest Mars News </h4>
+                <h3>{{mars_hem_list.title}}</h3>
+                <p>{{mars_hem_list.paragraph}}</p>
+            </div>
+        </div>
+        <div class ="row">
+            <div class="col-md-8">
+                <h3>Feature Image</h3>
+                <div class = "col-md-12">
+                    <img src = "{{mars_hem_list.url_featimage_path}}">
+
+                </div>
+            </div>
+            <div class ="col-md-4">
+                {{mars_hem_list.mars_facts|safe}}
+       
+            </div>    
+            
+        </div>
+        <div class = "row">
+            <div class="col-md-8 offset-4">
+                <h2 class ="align-items-center"><u>Mars Hemisphere</u></h2>
+            </div>
+        </div>
+        <div>
+            <ul style="list-style: non;">
+            {% for hemisphere in mars_hem_list.hemispheres %}
+                
+                
+                <li>{{ hemisphere.title }}<br/><img src="{{hemisphere.img_url }}"></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+    </div>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"> -->
+    <!-- </script> -->
+</body>
+
+</html>
